@@ -21,6 +21,15 @@ let constant = pipeT.height + gap;
 let bX = 10;
 let bY = 150;
 
+let gravity = 1;
+
+// When key down
+document.addEventListener("keydown", moveUp);
+
+function moveUp(){
+    bY -= 20;
+}
+
 // Drawing images
 function draw(){
     ctx.drawImage(bg,0,0);
@@ -31,6 +40,9 @@ function draw(){
     ctx.drawImage(fg,0,cvs.height - fg.height);
     
     ctx.drawImage(bird,bX,bY);
+    
+    bY += gravity;
+    requestAnimationFrame(draw);
 }
 
 draw();
