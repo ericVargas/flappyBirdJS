@@ -13,3 +13,24 @@ bg.src = "img/bg.png";
 fg.src = "img/fg.png";
 pipeT.src = "img/pipeTop.png";
 pipeB.src = "img/pipeBottom.png";
+
+// Distance variables
+let gap = 85;
+let constant = pipeT.height + gap;
+
+let bX = 10;
+let bY = 150;
+
+// Drawing images
+function draw(){
+    ctx.drawImage(bg,0,0);
+    
+    ctx.drawImage (pipeT,100,0);
+    ctx.drawImage (pipeB,100,0 + constant);
+    
+    ctx.drawImage(fg,0,cvs.height - fg.height);
+    
+    ctx.drawImage(bird,bX,bY);
+}
+
+draw();
