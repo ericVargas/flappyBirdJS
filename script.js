@@ -30,12 +30,34 @@ function moveUp(){
     bY -= 20;
 }
 
+// Pipe coordinates
+let pipe = [];
+
+pipe[0] = {
+    x: cvs.width,
+    y: 0
+}
+
 // Drawing images
 function draw(){
     ctx.drawImage(bg,0,0);
     
-    ctx.drawImage (pipeT,100,0);
-    ctx.drawImage (pipeB,100,0 + constant);
+    // Continously draw new pipes
+    for (let i = 0; i < pipe.length; i++){
+        ctx.drawImage (pipeT,pipe[i].x,pipe[i].y);
+        ctx.drawImage (pipeB,pipe[i].x,pipe[i].y + constant);
+        
+        // Moving pipes to the left
+        pipe[i].x --;
+        
+        // Randomize x coordinates of new pipes
+        if(pipe[i].x == 125){
+            pipe.push({
+                x: cvs.width,
+                y: Math.floor(Math.random() * pipeT.height) - pipeT.height
+            });
+        }
+    }
     
     ctx.drawImage(fg,0,cvs.height - fg.height);
     
