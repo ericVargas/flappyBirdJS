@@ -21,13 +21,13 @@ let constant = pipeT.height + gap;
 let bX = 10;
 let bY = 150;
 
-let gravity = 1;
+let gravity = 1.5;
 
 // When key down
 document.addEventListener("keydown", moveUp);
 
 function moveUp(){
-    bY -= 20;
+    bY -= 25;
 }
 
 // Pipe coordinates
@@ -56,6 +56,11 @@ function draw(){
                 x: cvs.width,
                 y: Math.floor(Math.random() * pipeT.height) - pipeT.height
             });
+        }
+        
+        // Detecting collision
+        if(bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeT.width && (bY <= pipe[i].y + pipeT.height || bY+bird.height >= pipe[i].y+constant)){
+            location.reload(); // reload page
         }
     }
     
