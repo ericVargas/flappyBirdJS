@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Flappy";
+    src: url("font/FlappyBirdy.ttf");
+}
+
+* {
+    font-family: "Flappy", sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+h3 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.center {
+    display: grid;
+    margin-top: 20px;
+}
+
+#canvas {
+    justify-self: center;
+}
+
+@media only screen and (max-width: 600px) {
+    #canvas {
+        justify-self: stretch;
+    }
+}

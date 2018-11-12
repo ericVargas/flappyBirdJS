@@ -34,6 +34,7 @@ oneUp.src = "sound/score.mp3";
 
 // When key down
 document.addEventListener("keydown", moveUp);
+//document.addEventListener("click", moveUp);
 
 function moveUp(){
     bY -= 25;
@@ -73,6 +74,7 @@ function draw(){
             location.reload(); // reload page
         }
         
+        // Add to score
         if(pipe[i].x == 5){
             score++;
             oneUp.play();
